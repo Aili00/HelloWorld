@@ -1,0 +1,10 @@
+platform:ios,'7.0'
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'MJRefresh'
+pod 'MBProgressHUD'
+pod 'JSONModel'
+pod 'MMDrawerController'
+pod 'UMengSocial','~> 4.3'
+pod 'FMDB'
+

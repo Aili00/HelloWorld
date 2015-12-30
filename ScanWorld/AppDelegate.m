@@ -7,8 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import <MMDrawerController/MMDrawerController.h>
+#import "RightViewController.h"
+#import "CenterViewController.h"
+#import "UMSocialWechatHandler.h"
+#import "UserModel.h"
+#import <WXApi.h>
 
-@interface AppDelegate ()
+#define LeftDrawerWidth 100;
+#define RightDrawerWidth 200;
+
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -16,8 +25,79 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    /**
+     *  获取用户登录信息
+     */
+    [self fetchUserInfo];
+    
     // Override point for customization after application launch.
+    
+    /**
+     *  创建抽屉
+     */
+    //创建 左中右 视图控制器
+    CenterViewController *centerController = [CenterViewController new];
+    UINavigationController *centerNaviController = [[UINavigationController alloc]initWithRootViewController:centerController];
+  //  LeftViewController *leftController = [LeftViewController new];
+    RightViewController *rightController = [RightViewController new];
+    //创建 抽屉 视图控制器
+    //预留 左边抽屉
+    MMDrawerController *drawController = [[MMDrawerController alloc]initWithCenterViewController:centerNaviController leftDrawerViewController:nil rightDrawerViewController:rightController];
+    //拖动范围
+    drawController.maximumLeftDrawerWidth = LeftDrawerWidth;
+    drawController.maximumRightDrawerWidth = RightDrawerWidth;
+    
+    //drawController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    drawController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    //设置抽屉为 根视图
+    self.window.rootViewController =  drawController;
+    [self.window makeKeyAndVisible];
+    
+    /**
+     *  设置 状态栏颜色
+     */
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    /**
+     *  友盟分享
+     */
+    [UMSocialData setAppKey:@"5674ae48e0f55a5c04006675"];
+    
+    /**
+     *  添加 微信分享
+     */
+     [UMSocialWechatHandler setWXAppId:@"wxc49bac89b93b1400" appSecret:@"41ba52a59684dbf211d10273e6eab53c" url:nil];
+    
+    
+    /**
+     *  打印一下沙河目录 用来查看数据库
+     */
+    
+//  NSLog(@"沙河目录：%@",NSHomeDirectory());
     return YES;
+}
+
+- (void)fetchUserInfo {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *data = [userDefault dataForKey:USER_INFO];
+    UserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    TokenModel *token = [[TokenModel alloc]initWithDictionary:model.token error:nil];
+//    model.token = token;
+   // NSLog(@"%@",model);
+    //用户存在
+    if (model) {
+        [UserInfoManager shareManager].userModel = model;
+       // NSLog(@"%@",[UserInfoManager shareManager].userModel);
+    }
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

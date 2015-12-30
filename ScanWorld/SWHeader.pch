@@ -1,0 +1,215 @@
+//
+//  SWHeader.pch
+//  ScanWorld
+//
+//  Created by qianfeng on 15/12/16.
+//  Copyright © 2015年 Aili. All rights reserved.
+//
+
+#ifndef SWHeader_pch
+#define SWHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#pragma mark --------------第三方库
+#import <MJRefresh/MJRefresh.h>
+#import <AFNetworking/AFNetworking.h>
+#import <JSONModel/JSONModel.h>
+#import <UIImageView+WebCache.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import "UMSocial.h"
+#import <UIButton+WebCache.h>
+#import <MMDrawerController/MMDrawerController.h>
+
+#pragma mark --------------自定义库
+#import "UserInfoManager.h"
+#import "CYTipView.h"
+
+#pragma mark --------------自定义方法
+//设置颜色
+#define SWColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define SWBaseColor SWColor(103, 146, 219, 1.0)
+#define SWContentColor SWColor(240, 240, 240, 1.0)
+//屏幕尺寸
+#define  ScreenWidth [[UIScreen mainScreen]bounds].size.width
+#define ScreenHeight [[UIScreen mainScreen]bounds].size.height
+#define NavHeight 64
+#define TabBarHeight 49
+
+//动画时间
+#define AnimationTime 3 
+
+#pragma mark --------------存储数据
+#define USERNAME @"userName"
+
+#pragma mark --------------工具类
+#import "NetWorkingManager.h"
+
+
+#pragma mark --------------页面类型
+//全球 头视图
+#define  SWGLOBE_HEADEREVIEW @"SWGlobe_Header" 
+
+//全球 页面类型
+#define SWGLOBE_TYPE @"SWGLOBE_TYPE"
+//市场 页面类型
+#define SWMARKET_TYPE @"SWMARKET_TYPE"
+//最热 页面类型
+#define SWHOST_TYPE @"SWHOST_TYPE"
+//美国 页面类型
+#define SWAMERICAN_TYPE @"SWAMERICAN_TYPE"
+//推荐
+#define SWRECOMMEND_TYPE @"SWRECOMMEND_TYPE"
+//经济
+#define SWECONOMY_TYPE @"SWECONOMY_TYPE"
+//央行
+#define SWBANK_TYPE @"SWBANK_TYPE"
+//公司
+#define SWCOMPANY_TYPE @"SWCOMPANY_TYPE"
+//中国
+#define SWCHINA_TYPE @"SWCHINA_TYPE"
+//欧洲
+#define SWEUROPE_TYPE @"SWEUROPE_TYPE"
+//评论页面
+#define SWCOMMENT_TYPE @"SWCOMMENT_TYPE"
+
+//评论数据页面
+#define SWCOMMENT_DETAIL_TYPE @"SWCOMMENT_DETAIL_TYPE"
+
+
+#pragma mark --------------请求URL
+//////////////新闻类
+//市场
+#define SWMARKET_URL @"http://api.wallstreetcn.com/v2/posts?cid=21&page=%d"
+//最热
+#define SWHOST_URL @"http://api.wallstreetcn.com/v2/posts?alias=hotNews&page=%d"
+//美国
+#define SWAMERICAN_URL @"http://api.wallstreetcn.com/v2/posts?cid=16&page=%d"
+//全球
+#define SWGLOBE_TITLE_URL @"http://api.wallstreetcn.com/v2/posts?cid=6&limit=5"
+#define SWGLOBE_CONTENT_URL @"http://api.wallstreetcn.com/v2/posts?page=%d"
+//推荐
+#define SWRECOMMEND_URL @"http://api.wallstreetcn.com/v2/posts?cid=11&page=%d"
+//经济
+#define SWECONOMY_URL @"http://api.wallstreetcn.com/v2/posts?cid=19&page=%d"
+//央行
+#define SWBANK_URL @"http://api.wallstreetcn.com/v2/posts?cid=20&page=%d"
+//公司
+#define SWCOMPANY_URL @"http://api.wallstreetcn.com/v2/posts?cid=22&page=%d"
+//中国
+#define SWCHINA_URL @"http://api.wallstreetcn.com/v2/posts?cid=17&page=%d"
+//欧洲
+#define SWEUROPE_URL @"http://api.wallstreetcn.com/v2/posts?cid=15&page=%d"
+
+//页面的详情页
+#define SWNEWS_DETAIL_URL @"http://api.wallstreetcn.com/v2/posts/%@"
+
+//页面详情页的数据 (GET 请求)
+#define SWNEWS_DETAIL_COMMON_URL @"http://api.wallstreetcn.com/v2/comments?thread_id=%@&down_id=0"
+
+//页面详情页的发送评论
+#define SWNEWS_COMMENT_POST @"http://api.wallstreetcn.com/v2/comments"
+//{"content":"现在都没搞懂到底谁是反对派？","threadId":"103687","parentId":"0"}
+
+//收藏新闻，取消收藏
+#define SWNEWS_FAVORITE_URL @"http://api.wallstreetcn.com/v2/posts/%@/stars"
+
+
+
+
+//////////////////// 直播///////////////////////
+//直播
+#define INFO_ZHIBO_REFRESH @"http://api.wallstreetcn.com/apiv1/livenews-list-v2.json?page=%d"
+#define INFO_ZHIBO_COUNT @"http://api.wallstreetcn.com/apiv1/livenews-count.json?nid=%@"
+#define INFO_ZHIBO_DETAIL_LOGIN @"http://api.wallstreetcn.com:80/v2/livenews/%@/stars"
+#define INFO_ZHIBO_DETAIL_NOLOGIN @"http://api.wallstreetcn.com:80/v2/livenews/%@"
+
+//收藏直播,取消收藏
+#define INFO_LIVE_SHOUCANG_ZHIBO @"http://api.wallstreetcn.com:80/v2/livenews/%@/stars"
+
+/////////////////// 行情//////////////////////
+//行情
+#define INFO_HANGQING_ONE @"http://api.markets.wallstreetcn.com/v1/quotes.json"
+#define INFO_HANGQING_TWO @"http://api.markets.wallstreetcn.com/v1/quotes.json?channel=forex"
+#define INFO_HANGQING_THREE @"http://api.markets.wallstreetcn.com/v1/quotes.json?channel=commodity"
+#define INFO_HANGQING_FOUR @"http://api.markets.wallstreetcn.com/v1/quotes.json?channel=indice"
+#define INFO_HANGQING_FIVE @"http://api.markets.wallstreetcn.com/v1/quotes.json?channel=bond"
+
+
+///////////////////*************日历**********//////////////////////
+//日历
+#define INFO_RILI @"http://api.markets.wallstreetcn.com/v1/calendar.json?start=%@&end=%@"
+
+
+//更多
+///////////////************更多*******************//////////////
+
+#pragma mark -------------- 注册登录信息
+#define LOGIN_NAME @"identify"
+#define USER_PASSWORD @"password"
+#define USER_EMAIL @"email"
+#define REGISTER_NAME @"username"
+#define USER_INFO @"userInfo"
+#define USER_AVATAR @"avatar"
+
+
+
+
+//注册
+#define SW_UESR_REGIST @"http://api.wallstreetcn.com:80/v2/register"
+
+//登陆
+#define SW_USER_LOGIN @"http://api.wallstreetcn.com:80/v2/login"
+//登录成功的消息
+#define LOGINSUCCESSNOTIFICATION @"LOGIN_SUCCESS"
+//退出登录的消息
+#define LOGINOUTNOTIFICATION @"LOGIN_OUT"
+
+//活动
+#define INFO_MORE_ACTIVITY  @"http://api.wallstreetcn.com:80/apiv1/app_activity_ios.json"
+//上传头像
+#define SWUSER_AVATER_POST @"http://api.wallstreetcn.com:80/v2/users/avatar"
+//头像上传成功的消息
+#define AVATARPOSTSUCCESSNOTIFICATION @"AVATAR_POST_SUCCESS"
+
+//收藏直播列表
+#define INFO_MORE_SHOUCANG_ZHIBO @"http://api.wallstreetcn.com:80/v2/livenews/stars?limit=25&page=%d"
+
+
+
+
+//收藏新闻列表
+#define SWNEWS_USER_FAVORITE_LIST @"http://api.wallstreetcn.com:80/v2/posts/stars?limit=25&page=%d"
+
+#define SWNEWS_USER_FAVORITE_ALL @"http://api.wallstreetcn.com:80/v2/posts/stars?limit=1000&page=%d"
+
+#define SWFAVORITE_TYPE @"SWFAVORITE_TYPE"
+//我的评论
+#define SW_USER_COMMON @"http://api.wallstreetcn.com:80/v2/user/comments?count=%d"
+//评论我的
+#define SW_USER_ABOUT @"http://api.wallstreetcn.com:80/v2/user/reply/comments?count=%d"
+
+//设置里面精品推荐
+#define INFO_MORE_SETTING_GOODARTICLE @"http://api.wallstreetcn.com/apiv1/app_recommend.json?app_desc=app_desc&app_title=app_title&down_url=down_url&icon_url=icon_url&ios_down_url=ios_down_url"
+//设置里面的版本更新
+#define INFO_MORE_SETTING_BANBEN @"http://api.wallstreetcn.com:80/apiv1/ios_version.json"
+
+#define COLOR [UIColor colorWithRed:108.0f/255.0f green:140.0f/255.0f blue:220.0f/255.0f alpha:1]
+
+
+
+#pragma mark -------------- 关闭打印
+//#define __UpLine__
+// 上线的时候打开
+
+#ifndef __UpLine__
+//变参宏
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+ 
+
+
+#endif /* SWHeader_pch */
