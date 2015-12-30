@@ -26,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //这是为了测试git提交添加的注释
+    
     /**
      *  获取用户登录信息
      */

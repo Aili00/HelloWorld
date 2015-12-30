@@ -17,6 +17,7 @@
 		BC2C3E9C1C2AD578002F2281 /* MYFavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C3E9B1C2AD578002F2281 /* MYFavoriteCell.m */; };
 		BC2C3EA01C2AE727002F2281 /* MyFavoriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C3E9F1C2AE727002F2281 /* MyFavoriteModel.m */; };
 		BC4B1EF31C3365D60049DA62 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4B1EF21C3365D60049DA62 /* CommentCell.xib */; };
+		BC4B1EF61C33B5C00049DA62 /* TextClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4B1EF51C33B5C00049DA62 /* TextClass.m */; };
 		BC7470EF1C29837900F62512 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7470EE1C29837900F62512 /* DBManager.m */; };
 		BC7CB43D1C2CE586003CEAB6 /* CommentCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CB43C1C2CE586003CEAB6 /* CommentCellFrame.m */; };
 		BC9400661C24563B00EB4478 /* CYButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9400651C24563B00EB4478 /* CYButtonFactory.m */; };
@@ -86,6 +87,8 @@
 		BC2C3E9F1C2AE727002F2281 /* MyFavoriteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriteModel.m; sourceTree = "<group>"; };
 		BC4384ED1C215701000DE152 /* SWHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHeader.pch; sourceTree = "<group>"; };
 		BC4B1EF21C3365D60049DA62 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentCell.xib; path = CommentCell/CommentCell.xib; sourceTree = "<group>"; };
+		BC4B1EF41C33B5C00049DA62 /* TextClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextClass.h; sourceTree = "<group>"; };
+		BC4B1EF51C33B5C00049DA62 /* TextClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextClass.m; sourceTree = "<group>"; };
 		BC7470ED1C29837900F62512 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		BC7470EE1C29837900F62512 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		BC7CB43B1C2CE586003CEAB6 /* CommentCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCellFrame.h; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 			children = (
 				BC9401121C24F6AA00EB4478 /* CommonViewController.h */,
 				BC9401131C24F6AA00EB4478 /* CommonViewController.m */,
+				BC4B1EF41C33B5C00049DA62 /* TextClass.h */,
+				BC4B1EF51C33B5C00049DA62 /* TextClass.m */,
 			);
 			name = "评论页面";
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 				BC9D7E361C2A2FCC00A56C79 /* MYCommentCell.m in Sources */,
 				BCD6A2A51C21061100BB102D /* main.m in Sources */,
 				BC1ADF2B1C279723001B17FA /* MyCommentModel.m in Sources */,
+				BC4B1EF61C33B5C00049DA62 /* TextClass.m in Sources */,
 				BC9D7E3A1C2A5EE100A56C79 /* OpinionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
